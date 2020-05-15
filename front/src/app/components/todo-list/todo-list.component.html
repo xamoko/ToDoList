@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        
+        <div class="">
+            <table class="responsive-table highlight">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Especialidad</th>
+                    <th>Consultorio</th>
+                    <th>Número Telefónico</th>
+                    <th><a href="#agregar" class="modal-trigger"><i class="material-icons agregar ">add_box</i></a></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let task of todolistservice.datas">
+                        <td>{{ task.nombre }}</td>
+                        <td>{{ task.especialidad }}</td>
+                        <td>{{ task.consultorio }}</td>
+                        <td>{{ task.numerotelefono }}</td>
+                        <td>
+                            <a href="#agregar" (click)="editTask(task)" class="modal-trigger" >
+                                <i class="material-icons editar">edit</i>
+                            </a>
+                        </td>
+                        <td>
+                            <a (click)="deleteTask(task._id)" class="modal-trigger" >
+                                <i class="material-icons eliminar">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+                  
+
+<!-- Modal Structure Agregar-->
+<div id="agregar" class="modal">
+    <div class="modal-content">
+        <div class="card">
+            <div class="card-content">
+                <form #TaskForm="ngForm" (ngSubmit)="addTask(TaskForm)">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="todolistservice.selectedToDoList._id" required>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="todolistservice.selectedToDoList.nombre" placeholder="Ingrese el nombre" required>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="especialidad" #especialidad="ngModel" [(ngModel)]="todolistservice.selectedToDoList.especialidad" placeholder="Ingresa la especialidad" required>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="consultorio" #consultorio="ngModel" [(ngModel)]="todolistservice.selectedToDoList.consultorio" placeholder="Ingrese el consultorio" required>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="numerotelefono" #numerotelefono="ngModel" [(ngModel)]="todolistservice.selectedToDoList.numerotelefono" placeholder="Ingrese el número de telefono" required>
+                        </div>
+                        <div class="card-action">
+                            <div class="imput-field col s12">
+                                <button class="btn green right modal-close"> <i class="material-icons">save</i> Guardar</button>
+                                <button class="btn yellow" (click)="resetForm(TaskForm)"> <i class="material-icons" >format_clear</i> Clean</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+  <!--   <a href="#!" class=" modal-action modal-close waves-effect waves-green   btn-flat">Agree</a> -->
+    </div>
+    </div>
+
