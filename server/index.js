@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
-const cors = require('cors');
+//const cors = require('cors');
+var cors = require('cors');;
 const app = express()
 const port = 3000
 const {mongoose} = require('./databases');
@@ -9,7 +10,9 @@ app.set('port', process.env.PORT || port)
 
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cors({origin:'http://localhost:4200'}));
+//app.use(cors({origin:'http://localhost:4200'}));
+app.use(cors());
+
 
 app.use('/api/todo-list/',require('./routes/rutas'));
 

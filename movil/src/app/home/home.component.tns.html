@@ -1,0 +1,34 @@
+<ActionBar title="ToDoList Doctor´s" class="action-bar">
+    <ActionItem ios.position="right" android.position="actionBar" (tap)="showModal()">
+        <Label text="&#xf0fe;" class="fa "></Label>
+        <!-- <Image src="../../assets/plus-square-regular.svg"></Image> -->
+    </ActionItem>
+</ActionBar>
+<StackLayout>
+     <!-- <Button text="showModal" (tap)="showModal()" class="btn btn-primary btn-active"></Button>
+   <GridLayout *ngFor="let todo of todoList" rows="auto" columns="auto, *, auto, auto">
+        <Button row="0" col="0" [text]="todo.done ? '&#xf05d;' : '&#xf10c;'" class="fa" [class.btn-done]="todo.done" (tap)="todo.done = !todo.done"></Button>
+        
+        <Label *ngIf="!todo.editing" row="0" col="1" [text]="todo.name" [class.done]="todo.done" textWrap="true"></Label>
+        <TextField *ngIf="todo.editing" row="0" col="1" hint="Ingresa el nuevo nombre" [(ngModel)]="todo.name"></TextField>
+        
+        <Button row="0" col="2" [text]="todo.editing ? '&#xf00c;' : '&#xf040;'" class="fa" (tap)="todo.editing ? doneEditing(todo) : editTodo(todo)"></Button>
+        <Button *ngIf="!todo.editing" row="0" col="3" text="&#xf1f8;" class="fa borrar" (tap)="deleteTodo(todo)"></Button>
+    </GridLayout> -->
+    <GridLayout *ngFor="let todo of todolistservice.datas" rows="auto" columns="auto, *, auto, auto">
+
+        <Label *ngIf="!todo.editing" row="0" col="1" [text]="todo._id" [class.done]="todo.done" textWrap="true" class="modalEtiqueta id"></Label>
+        <Label *ngIf="!todo.editing" row="0" col="1" [text]="todo.nombre" [class.done]="todo.done" textWrap="true" class="modalEtiqueta"></Label>
+
+        <Label text="&#xf044;" class="fa " row="0" col="2" ></Label>
+        
+        
+        <Label text="&#xf1f8;" class="fa " row="0" col="3" (tap)="eliminar(todo._id)"></Label>
+
+       <!--  <Label *ngIf="!todo.editing" row="0" col="2" [text]="todo.especialidad" [class.done]="todo.done" textWrap="true" class="modalEtiqueta"></Label>
+
+        <Label *ngIf="!todo.editing" row="0" col="3" [text]="todo.consultorio" [class.done]="todo.done" textWrap="true" class="modalEtiqueta"></Label>
+
+        <Label *ngIf="!todo.editing" row="0" col="4" [text]="todo.numerotelefono" [class.done]="todo.done" textWrap="true" class="modalEtiqueta"></Label> -->
+    </GridLayout>
+</StackLayout>

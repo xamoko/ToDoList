@@ -1,0 +1,20 @@
+
+<StackLayout backgroundColor="gray" class="p-20">
+    <!-- <Label class="my-label" style="text-align: center;" text="Modal view with ActionBar" textWrap="true"></Label>
+    <Button text="CLOSE MODAL" (tap)="close()"></Button> -->
+
+    <Label class="modalEtiqueta" style="text-align: center;" text="Nombre" textWrap="true" ></Label>
+    <TextField hint="Nombre" color="black" backgroundColor="white" [(ngModel)]="nombre"></TextField>
+
+    <Label class="modalEtiqueta" style="text-align: center;" text="Especialidad" textWrap="true" ></Label>
+    <TextField hint="Especialidad" color="black" backgroundColor="white" [(ngModel)]="especialidad"></TextField>
+
+    <Label class="modalEtiqueta" style="text-align: center;" text="Consultorio" textWrap="true" ></Label>
+    <TextField hint="Consultorio" color="black" backgroundColor="white" [(ngModel)]="consultorio"></TextField>
+
+    <Label class="modalEtiqueta" style="text-align: center;" text="Teléfono" textWrap="true" ></Label>
+    <TextField hint="Telefono" color="black" backgroundColor="white" keyboardType="integer" [(ngModel)]="telefono"></TextField>
+
+    <button (tap)="save()" class="btn btn-primary active" text="Guardar"></button>
+    <button (tap)="close()" class="btn btn-primary active" text="Cerrar"></button>
+</StackLayout>
